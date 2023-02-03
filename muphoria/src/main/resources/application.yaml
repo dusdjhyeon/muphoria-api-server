@@ -1,0 +1,24 @@
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/muphoria?useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: muphoria
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    jpa:
+      hibernate:
+        use-new-id-generator-mappings: false
+        ddl-auto: update
+        naming:
+          physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      show-sql: true
+      database: mysql
+      properties:
+        hibernate:
+          format_sql: true
+  server:
+    port: 80
+    error:
+      include-message: always
