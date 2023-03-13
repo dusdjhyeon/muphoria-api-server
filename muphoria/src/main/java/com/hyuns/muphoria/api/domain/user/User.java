@@ -1,5 +1,6 @@
 package com.hyuns.muphoria.api.domain.user;
 
+import com.hyuns.muphoria.api.domain.album.Album;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -9,6 +10,8 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.Set;
+
 import org.springframework.security.core.userdetails.UserDetails;
 
 @Builder
@@ -44,10 +47,10 @@ public class User implements UserDetails {
     private Role role;
 
 /*    @OneToMany(mappedBy = "user")
-    private Set<play> playlist = new HashSet<>();
-
+    private Set<Play> playlist = new HashSet<>();
+*/
     @OneToMany(mappedBy = "user")
-    pirvate Set<song> song = new HashSet<>();*/
+    private Set<Album> album = new HashSet<>();
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

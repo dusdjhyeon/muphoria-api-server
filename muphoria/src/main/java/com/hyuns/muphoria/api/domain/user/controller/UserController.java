@@ -21,7 +21,7 @@ import java.util.List;
 public class UserController {
     private final UserService userService;
 
-    @ApiOperation("전체 유저 리스트를 반환 합니다.")
+    @ApiOperation("전체 유저 리스트를 반환합니다.")
     @GetMapping(value = "/list")
     @ResponseStatus(value = HttpStatus.OK)
     public ResponseEntity<List<UserResponseDto.Default>> getAllUser() {
