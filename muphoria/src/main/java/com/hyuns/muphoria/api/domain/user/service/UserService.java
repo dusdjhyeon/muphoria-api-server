@@ -16,7 +16,6 @@ import org.springframework.web.server.ResponseStatusException;
 import org.springframework.security.core.Authentication;
 import java.util.List;
 
-@Service
 @RequiredArgsConstructor
 public class UserService {
     protected final UserRepository userRepository;
