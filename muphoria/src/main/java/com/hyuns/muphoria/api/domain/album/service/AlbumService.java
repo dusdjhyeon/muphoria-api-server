@@ -34,15 +34,17 @@ public class AlbumService {
         if(user.getRole() != Role.USER)
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "권한이 없습니다.");
 
-        Album album = albumRepository.save(data.toEntity());
+        Album album = albumRepository.save(
+                Album.builder()
+                        .title(data.getTitle())
+                        .user(user)
+                        .releaseDate(LocalDate.now())
+                        .coverImage(data.getCoverImage())
+                        .description(data.getDescription())
+                        .build()
+        );
+
         Integer id = album.getId();
-
-        album.setUser(user);
-        album.setTitle(data.getTitle());
-        album.setCoverImage(data.getCoverImage());
-        album.setRelease(LocalDate.now());
-        album.setDescription(data.getDescription());
-
         return id;
     }
 

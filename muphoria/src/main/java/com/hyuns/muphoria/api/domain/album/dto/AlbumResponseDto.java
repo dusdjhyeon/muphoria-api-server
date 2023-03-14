@@ -44,7 +44,7 @@ public class AlbumResponseDto {
                     .id(album.getId())
                     .title(album.getTitle())
                     .coverImage(album.getCoverImage())
-                    .release(album.getRelease())
+                    .release(album.getReleaseDate())
                     .description(album.getDescription())
                     .build();
         }

@@ -6,6 +6,8 @@ import lombok.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 @Builder
 @Getter
@@ -26,7 +28,8 @@ public class Album {
     private String title;
 
     @Column
-    private LocalDate release;
+    @JoinColumn(name = "release_date")
+    private LocalDate releaseDate;
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
@@ -37,4 +40,8 @@ public class Album {
 
     @Column(name = "cover_image")
     private String coverImage;
+/*
+    @OneToMany(mappedBy = "album")
+    private Set<Song> song = new HashSet<>();
+ */
 }
